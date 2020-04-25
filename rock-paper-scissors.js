@@ -1,6 +1,6 @@
 const getUserChoice = userInput => {
   userInput = userInput.toLowerCase();
-  if(userInput === 'rock' || userInput === 'paper' || userInput === 'scissors'){
+  if(userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb'){
     return userInput;
   }
   else{
@@ -26,8 +26,11 @@ const getComputerChoice = () => {
   }
 }
 const determineWinner = (userChoice, computerChoice) => {
+  if(userChoice === 'bomb'){
+    return 'You are a God of this game! My Lord you WON!!!';
+  }
   if(userChoice === computerChoice){
-    return 'Guess you were lucky! The game was a tie.'
+    return 'Guess you were lucky! The game was a tie.';
   }
   if(userChoice === 'rock'){
     if(computerChoice === 'scissors'){
@@ -56,7 +59,7 @@ const determineWinner = (userChoice, computerChoice) => {
 }
 
 function playGame(){
-  const userChoice = getUserChoice('rock');
+  const userChoice = getUserChoice('bomb');
   const computerChoice = getComputerChoice();
   
   console.log('Your threw: ' +userChoice);
